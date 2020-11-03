@@ -26,6 +26,8 @@ type bidderService struct{}
 type BidderServiceIF interface {
 	GetBiddersList() models.BidderAppState
 	CreateAndRegisterBidderHandler(bidder *models.BidderStruct) (int, string)
+
+	StudentDetails(studentId string) (int, string)
 }
 
 func BidderService() BidderServiceIF {
@@ -92,4 +94,17 @@ func BidderNotificationHandler(t time.Duration, id int) models.RequestHandlerFun
 		json.NewEncoder(w).Encode(bidResp)
 
 	}
+}
+
+func (self *bidderService) StudentDetails(studentId string) (int, string) {
+
+	studId, err := strconv.Atoi(studentId)
+
+	if err != nil {
+
+		return 0, utils.MarshalJson(utils.ResponseJson{0, nil, 0, err.Error()})
+
+	}
+
+	return 1, ""
 }

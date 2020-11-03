@@ -17,6 +17,7 @@ func main() {
 	// })
 
 	route.AuctionRouteService(e)
+	route.StudentService(e)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }

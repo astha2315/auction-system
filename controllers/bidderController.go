@@ -28,3 +28,11 @@ func CreateAndRegisterBidderHandler(c echo.Context) error {
 	_, response := services.BidderService().CreateAndRegisterBidderHandler(bidder)
 	return c.String(http.StatusOK, response)
 }
+
+func StudentDetails(c echo.Context) error {
+
+	studentId := c.Param("studentId")
+
+	_, response := services.BidderService().CreateAndRegisterBidderHandler(bidder)
+	return c.String(http.StatusOK, response)
+}
